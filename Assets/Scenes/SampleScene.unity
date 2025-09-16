@@ -132,7 +132,7 @@ GameObject:
   m_Component:
   - component: {fileID: 45812618}
   m_Layer: 0
-  m_Name: ItemPoint
+  m_Name: targetPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -914,7 +914,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358b45bcf171b5d4b857b5e3e1e528ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPoint: {fileID: 45812618}
+  targetPoint: {fileID: 45812618}
 --- !u!4 &370259066
 Transform:
   m_ObjectHideFlags: 0
@@ -1443,7 +1443,7 @@ GameObject:
   m_Component:
   - component: {fileID: 717592521}
   m_Layer: 0
-  m_Name: ItemPoint
+  m_Name: targetPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1598,7 +1598,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358b45bcf171b5d4b857b5e3e1e528ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPoint: {fileID: 717592521}
+  targetPoint: {fileID: 717592521}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0

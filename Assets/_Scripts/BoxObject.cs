@@ -3,8 +3,8 @@ using UnityEngine;
 public class BoxObject : MonoBehaviour, ISetupObjectItem
 {
     [SerializeField]
-    private Transform itemPoint;
-    public Transform targetTransform => itemPoint;
+    private Transform targetPoint;
+    public Transform targetTransform => targetPoint;
 
 
     public void OnCancelInteraction()
