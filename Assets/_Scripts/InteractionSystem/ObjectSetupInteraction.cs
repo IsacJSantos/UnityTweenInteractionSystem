@@ -10,6 +10,7 @@ public abstract class ObjectSetupInteraction : MonoBehaviour
     [SerializeField]
     private ObjcetSetupInteractionTweenType tweenType;
     [SerializeField]
+    [Tooltip("The time between objects if the Tween Type is setted to Fixed Time")]
     protected float tweenFixedTime;
     [SerializeField]
     protected ObjectSetup[] objectSetups;
@@ -108,7 +109,7 @@ public abstract class ObjectSetupInteraction : MonoBehaviour
 
     public void ToggleInteraction(bool active)
     {
-
+        // Do something
     }
 
     protected IEnumerator _MoveObjects(float timePerObject)
@@ -186,12 +187,24 @@ public abstract class ObjectSetupInteraction : MonoBehaviour
 [System.Serializable]
 public enum ObjcetSetupInteractionType
 {
+    /// <summary>
+    /// Plays the animation one time
+    /// </summary>
     Once,
+    /// <summary>
+    /// Plays the animation in a loop while the interaction exists
+    /// </summary>
     Loop
 }
 [System.Serializable]
 public enum ObjcetSetupInteractionTweenType
 {
+    /// <summary>
+    /// The time between objects will depend on the given interaction time
+    /// </summary>
     DependsOnInteractionTime,
+    /// <summary>
+    /// The time between objects will be fixed
+    /// </summary>
     FixedTime
 }

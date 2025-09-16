@@ -2422,8 +2422,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   interactionType: 0
-  tweenType: 1
-  tweenFixedTime: 15
+  tweenType: 0
+  tweenFixedTime: 0
   objectSetups:
   - {fileID: 646527318}
   - {fileID: 132708724}
