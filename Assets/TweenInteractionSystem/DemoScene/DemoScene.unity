@@ -1301,8 +1301,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.33565903, y: -0.62170094, z: 0.3346543, w: -0.6235603}
-  m_LocalPosition: {x: -2.307393, y: 3.051239, z: -0.035547808}
+  m_LocalRotation: {x: -0.3257432, y: -0.62898177, z: 0.32769984, w: -0.62520885}
+  m_LocalPosition: {x: -2.036026, y: 4.329502, z: -0.22131827}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxObject: {fileID: 1791425343}
   tableInteraction: {fileID: 1266470461}
-  interactionTime: 8
+  interactionTime: 10
   StartInteraction: 0
   CancelInteraction: 0
 --- !u!4 &478427931
@@ -2432,7 +2432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxObject: {fileID: 1156473767}
   tableInteraction: {fileID: 34249630}
-  interactionTime: 8
+  interactionTime: 10
   StartInteraction: 0
   CancelInteraction: 0
 --- !u!4 &960983863
