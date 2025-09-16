@@ -99,4 +99,11 @@ public class ObjectSetup_Input : ObjectSetup
         base.ResetObject();
         DisableObject();
     }
+
+    public override float GetTotalTweenDuration()
+    {
+        return jumpDuration +
+               finalMoveDelay +
+               finalMoveDuration;
+    }
 }

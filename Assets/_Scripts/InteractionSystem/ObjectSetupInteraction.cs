@@ -29,8 +29,6 @@ public abstract class ObjectSetupInteraction : MonoBehaviour
     protected const float startDelay = .8f;
     protected const float timePerObjectOffset = .03f;
 
-    protected bool settedUp;
-
     private void Awake()
     {
         RemoveNullFieldsFromSignList();
@@ -120,17 +118,22 @@ public abstract class ObjectSetupInteraction : MonoBehaviour
 
         yield return new WaitForSeconds(startDelay);
 
+        ObjectSetup lastObjectSetup = null;
         do
         {
+            Debug.Log("Loop");
             for (int i = 0; i < objectSetups.Length; i++)
             {
-                ObjectSetup objectSetup = objectSetups[i];
-                MoveObject(objectSetup, timePerObject);
+                lastObjectSetup = objectSetups[i];
+                MoveObject(lastObjectSetup, timePerObject);
                 yield return new WaitForSeconds(timePerObject);
             }
 
-            if (interactionType == ObjcetSetupInteractionType.Loop)
+            if (interactionType == ObjcetSetupInteractionType.Loop) 
+            {
+                yield return new WaitForSeconds(lastObjectSetup.GetTotalTweenDuration());
                 ResetAllObjects();
+            }
 
         } while (interactionType == ObjcetSetupInteractionType.Loop);
     }

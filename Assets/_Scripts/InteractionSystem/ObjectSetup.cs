@@ -104,6 +104,8 @@ public abstract class ObjectSetup : MonoBehaviour
         }
     }
 
+    public abstract float GetTotalTweenDuration();
+
 #if UNITY_EDITOR
     private void QuickSetup()
     {

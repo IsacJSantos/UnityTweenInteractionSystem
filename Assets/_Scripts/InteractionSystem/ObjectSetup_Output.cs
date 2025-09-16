@@ -14,8 +14,11 @@ public class ObjectSetup_Output : ObjectSetup
     private float jumpPower = 0.3f;
     [SerializeField]
     private Vector3 ratation;
+
+    private float currentAnimationDuration;
     public override void MoveObject(Transform setupItemTransform, Vector3 targetPosition, float time, Action<ObjectSetup> OnHitTargetPosition = null)
     {
+        currentAnimationDuration = time;
         MoveObjectOut(targetPosition, time, OnHitTargetPosition);
     }
 
@@ -46,6 +49,12 @@ public class ObjectSetup_Output : ObjectSetup
     public override void ResetObject()
     {
         base.ResetObject();
+        gameObject.SetActive(true);
         ToggleColliders(true);
+    }
+
+    public override float GetTotalTweenDuration()
+    {
+       return currentAnimationDuration;
     }
 }
