@@ -614,7 +614,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxObject: {fileID: 814866213}
   tableInteraction: {fileID: 1799608039}
-  interactionTime: 15
+  interactionTime: 7
   StartInteraction: 0
   CancelInteraction: 0
 --- !u!4 &293090745
@@ -1196,8 +1196,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5367796781c8bc44f8a7da342a72a27c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionType: 1
-  tweenType: 1
+  interactionType: 0
+  tweenType: 0
   tweenFixedTime: 0.3
   objectSetups:
   - {fileID: 166963643}
@@ -2421,8 +2421,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01353b7f2d1ed124297fd6125a405d78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interactionType: 1
-  tweenType: 1
+  interactionType: 0
+  tweenType: 0
   tweenFixedTime: 0.3
   objectSetups:
   - {fileID: 646527318}

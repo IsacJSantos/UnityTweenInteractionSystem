@@ -121,7 +121,6 @@ public abstract class ObjectSetupInteraction : MonoBehaviour
         ObjectSetup lastObjectSetup = null;
         do
         {
-            Debug.Log("Loop");
             for (int i = 0; i < objectSetups.Length; i++)
             {
                 lastObjectSetup = objectSetups[i];
