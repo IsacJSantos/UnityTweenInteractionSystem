@@ -11,6 +11,7 @@ public class ObjectSetupInteraction_Output : ObjectSetupInteraction
     protected override void FinishHoldInteraction()
     {
         base.FinishHoldInteraction();
+        DisableAllObjects();
         ToggleInteraction(false);
     }
 
