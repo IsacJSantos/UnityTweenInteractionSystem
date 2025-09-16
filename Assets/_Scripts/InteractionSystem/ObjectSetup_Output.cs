@@ -1,0 +1,51 @@
+using DG.Tweening;
+using System;
+using UnityEngine;
+
+public class ObjectSetup_Output : ObjectSetup
+{
+    [Space]
+
+    [SerializeField]
+    private Ease jumpEase;
+    [SerializeField]
+    private Ease scaleEase;
+    [SerializeField]
+    private float jumpPower = 0.3f;
+    [SerializeField]
+    private Vector3 ratation;
+    public override void MoveObject(Transform setupItemTransform, Vector3 targetPosition, float time, Action<ObjectSetup> OnHitTargetPosition = null)
+    {
+        MoveObjectOut(targetPosition, time, OnHitTargetPosition);
+    }
+
+    private void MoveObjectOut(Vector3 targetPosition, float time, Action<ObjectSetup> OnHitTargetPosition = null)
+    {
+        ToggleColliders(false);
+
+        if (disableTween)
+        {
+            DisableObject();
+            return;
+        }
+
+        SetLayer(true);
+
+        transform.DOScale(minScale, time).SetEase(scaleEase);
+
+        transform.DOJump(targetPosition, jumpPower, 1, time)
+            .SetEase(jumpEase)
+            .OnComplete(() =>
+            {
+                OnHitTargetPosition?.Invoke(this);
+            }).Play();
+
+        transform.DOLocalRotate(ratation, time);
+    }
+
+    public override void ResetObject()
+    {
+        base.ResetObject();
+        ToggleColliders(true);
+    }
+}
