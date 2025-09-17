@@ -2,9 +2,9 @@ using UnityEngine;
 
 public class ObjectSetupInteraction_Output : ObjectSetupInteraction
 {
-    public override void MoveObject(ObjectSetup objectSetup, float time)
+    public override void MoveObject(ObjectSetup objectSetup, float duration)
     {
-        objectSetup.MoveObject(currentSetupItemInterface.targetTransform, currentSetupItemInterface.targetTransform.position, time, OnObjectHitTargetPosition);     
+        objectSetup.MoveObject(currentSetupItem.targetTransform, currentSetupItem.targetTransform.position, duration, OnObjectHitTargetPosition);     
     }
 
 
@@ -25,7 +25,7 @@ public class ObjectSetupInteraction_Output : ObjectSetupInteraction
 
     private void OnObjectHitTargetPosition(ObjectSetup objectSetup)
     {
-        currentSetupItemInterface.OnObjectHitTargetPosition();
+        currentSetupItem.OnObjectHitTargetPosition();
         objectSetup.DisableObject();
     }
 }

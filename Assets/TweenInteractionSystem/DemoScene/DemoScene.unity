@@ -337,7 +337,7 @@ MonoBehaviour:
   scaleEase: 10
   jumpEase: 1
   moveEase: 1
-  jumpOffset: {x: 0, y: 0.3, z: 0.3}
+  jumpOffset: {x: 0, y: 1.3, z: 0.3}
   targetPositionOffset: {x: 0, y: 0.2, z: 0}
   jumpPower: 0.3
   scaleDuration: 1.6
@@ -399,7 +399,7 @@ MonoBehaviour:
   scaleEase: 10
   jumpEase: 1
   moveEase: 1
-  jumpOffset: {x: 0, y: 0.3, z: 0.3}
+  jumpOffset: {x: 0, y: 1.3, z: 0.3}
   targetPositionOffset: {x: 0, y: 0.2, z: 0}
   jumpPower: 0.3
   scaleDuration: 1.6
@@ -604,7 +604,7 @@ MonoBehaviour:
   scaleEase: 10
   jumpEase: 1
   moveEase: 1
-  jumpOffset: {x: 0, y: 0.3, z: 0.3}
+  jumpOffset: {x: 0, y: 1.3, z: 0.3}
   targetPositionOffset: {x: 0, y: 0.2, z: 0}
   jumpPower: 0.3
   scaleDuration: 1.6
@@ -1158,7 +1158,7 @@ MonoBehaviour:
   scaleEase: 10
   jumpEase: 1
   moveEase: 1
-  jumpOffset: {x: 0, y: 0.3, z: 0.3}
+  jumpOffset: {x: 0, y: 1.3, z: 0.3}
   targetPositionOffset: {x: 0, y: 0.2, z: 0}
   jumpPower: 0.3
   scaleDuration: 1.6
@@ -1501,7 +1501,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxObject: {fileID: 1791425343}
   tableInteraction: {fileID: 1266470461}
-  interactionTime: 10
+  interactionTime: 15
   StartInteraction: 0
   CancelInteraction: 0
 --- !u!4 &478427931
@@ -1686,7 +1686,7 @@ MonoBehaviour:
   scaleEase: 10
   jumpEase: 1
   moveEase: 1
-  jumpOffset: {x: 0, y: 0.3, z: 0.3}
+  jumpOffset: {x: 0, y: 1.3, z: 0.3}
   targetPositionOffset: {x: 0, y: 0.2, z: 0}
   jumpPower: 0.3
   scaleDuration: 1.6
@@ -1848,7 +1848,7 @@ MonoBehaviour:
   scaleEase: 10
   jumpEase: 1
   moveEase: 1
-  jumpOffset: {x: 0, y: 0.3, z: 0.3}
+  jumpOffset: {x: 0, y: 1.3, z: 0.3}
   targetPositionOffset: {x: 0, y: 0.2, z: 0}
   jumpPower: 0.3
   scaleDuration: 1.6
@@ -1910,7 +1910,7 @@ MonoBehaviour:
   scaleEase: 10
   jumpEase: 1
   moveEase: 1
-  jumpOffset: {x: 0, y: 0.3, z: 0.3}
+  jumpOffset: {x: 0, y: 1.3, z: 0.3}
   targetPositionOffset: {x: 0, y: 0.2, z: 0}
   jumpPower: 0.3
   scaleDuration: 1.6
@@ -2072,7 +2072,7 @@ MonoBehaviour:
   scaleEase: 10
   jumpEase: 1
   moveEase: 1
-  jumpOffset: {x: 0, y: 0.3, z: 0.3}
+  jumpOffset: {x: 0, y: 1.3, z: 0.3}
   targetPositionOffset: {x: 0, y: 0.2, z: 0}
   jumpPower: 0.3
   scaleDuration: 1.6
@@ -2184,7 +2184,7 @@ MonoBehaviour:
   scaleEase: 10
   jumpEase: 1
   moveEase: 1
-  jumpOffset: {x: 0, y: 0.3, z: 0.3}
+  jumpOffset: {x: 0, y: 1.3, z: 0.3}
   targetPositionOffset: {x: 0, y: 0.2, z: 0}
   jumpPower: 0.3
   scaleDuration: 1.6
@@ -2432,7 +2432,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxObject: {fileID: 1156473767}
   tableInteraction: {fileID: 34249630}
-  interactionTime: 10
+  interactionTime: 15
   StartInteraction: 0
   CancelInteraction: 0
 --- !u!4 &960983863
@@ -2494,7 +2494,7 @@ MonoBehaviour:
   scaleEase: 10
   jumpEase: 1
   moveEase: 1
-  jumpOffset: {x: 0, y: 0.3, z: 0.3}
+  jumpOffset: {x: 0, y: 1.3, z: 0.3}
   targetPositionOffset: {x: 0, y: 0.2, z: 0}
   jumpPower: 0.3
   scaleDuration: 1.6
@@ -2748,7 +2748,7 @@ MonoBehaviour:
   scaleEase: 10
   jumpEase: 1
   moveEase: 1
-  jumpOffset: {x: 0, y: 0.3, z: 0.3}
+  jumpOffset: {x: 0, y: 1.3, z: 0.3}
   targetPositionOffset: {x: 0, y: 0.2, z: 0}
   jumpPower: 0.3
   scaleDuration: 1.6
@@ -3658,7 +3658,7 @@ MonoBehaviour:
   scaleEase: 10
   jumpEase: 1
   moveEase: 1
-  jumpOffset: {x: 0, y: 0.3, z: 0.3}
+  jumpOffset: {x: 0, y: 1.3, z: 0.3}
   targetPositionOffset: {x: 0, y: 0.2, z: 0}
   jumpPower: 0.3
   scaleDuration: 1.6

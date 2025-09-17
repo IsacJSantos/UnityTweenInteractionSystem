@@ -28,7 +28,7 @@ public class BoxObject : MonoBehaviour, ISetupObjectItem
 
     public void OnObjectHitTargetPosition()
     {
-        transform.DOPunchPosition(new Vector3(0, 0.1f, 0), 0.2f); 
+        transform.DOPunchPosition(new Vector3(0, -0.08f, 0), 0.2f); 
     }
 
     public void OnObjectLeftTargetPosition()

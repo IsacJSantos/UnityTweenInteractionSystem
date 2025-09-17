@@ -8,11 +8,11 @@ public class ObjectSetupInteraction_Input : ObjectSetupInteraction
         DisableAllObjects();
     }
 
-    public override void MoveObject(ObjectSetup objectSetup, float time)
+    public override void MoveObject(ObjectSetup objectSetup, float duration)
     {
         objectSetup.EnableObject();
-        currentSetupItemInterface?.OnObjectLeftTargetPosition();
-        objectSetup.MoveObject(currentSetupItemInterface.targetTransform, objectSetup.getInitialPosition, time, OnObjectHitTargetPosition);
+        currentSetupItem?.OnObjectLeftTargetPosition();
+        objectSetup.MoveObject(currentSetupItem.targetTransform, objectSetup.getInitialPosition, duration, OnObjectHitTargetPosition);
     }
 
     protected override void CancelInterction()

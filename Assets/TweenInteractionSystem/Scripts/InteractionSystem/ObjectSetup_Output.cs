@@ -16,10 +16,10 @@ public class ObjectSetup_Output : ObjectSetup
     private Vector3 ratation;
 
     private float currentAnimationDuration;
-    public override void MoveObject(Transform setupItemTransform, Vector3 targetPosition, float time, Action<ObjectSetup> OnHitTargetPosition = null)
+    public override void MoveObject(Transform setupItemTargetPoint, Vector3 finalPosition, float time, Action<ObjectSetup> OnHitTargetPosition = null)
     {
         currentAnimationDuration = time;
-        MoveObjectOut(targetPosition, time, OnHitTargetPosition);
+        MoveObjectOut(finalPosition, time, OnHitTargetPosition);
     }
 
     private void MoveObjectOut(Vector3 targetPosition, float time, Action<ObjectSetup> OnHitTargetPosition = null)

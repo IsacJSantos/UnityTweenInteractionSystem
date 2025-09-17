@@ -6,46 +6,53 @@ using UnityEngine;
 public abstract class ObjectSetupInteraction : MonoBehaviour
 {
     [SerializeField]
-    private ObjcetSetupInteractionType interactionType;
+    private InteractionType interactionType;
     [SerializeField]
-    private ObjcetSetupInteractionTweenType tweenType;
+    private InteractionTweenType tweenType;
     [SerializeField]
     [Tooltip("The time between objects if the Tween Type is setted to Fixed Time")]
     protected float tweenFixedTime;
     [SerializeField]
     protected ObjectSetup[] objectSetups;
+
     [SerializeField]
-    [Tooltip("The instalation signs in this setup interaction")]
-    private List<Transform> signs;
-    private Vector3 signDefaultScale;
+    [Tooltip("The interaction signs in this setup interaction")]
+    private List<Transform> interactionSigns;
+    private Vector3 interactionSignDefaultScale;
     [SerializeField]
-    private Ease signsTweenEase = Ease.OutBack;
+    private Ease interactionSignsTweenEase = Ease.OutBack;
     [SerializeField]
     protected GameObject setupSignParent;
 
 
-    protected ISetupObjectItem currentSetupItemInterface;
+    protected ISetupObjectItem currentSetupItem;
 
-    protected const float startDelay = .8f;
-    protected const float timePerObjectOffset = .03f;
+    protected const float START_DELAY = .8f;
+    protected const float TIME_PER_OBJECT_OFFSET = .03f;
 
     private void Awake()
     {
         RemoveNullFieldsFromSignList();
 
         if (HasInstalationSigns())
-            signDefaultScale = signs[0].localScale;
+            interactionSignDefaultScale = interactionSigns[0].localScale;
     }
 
     protected virtual void StartInteraction(ISetupObjectItem setupObjectItemInterface, float interactionTime)
     {
-        currentSetupItemInterface = setupObjectItemInterface;
+        currentSetupItem = setupObjectItemInterface;
 
-        float timePerObject = tweenType == ObjcetSetupInteractionTweenType.FixedTime ?
-           tweenFixedTime :
-           ((interactionTime - startDelay) / objectSetups.Length) - timePerObjectOffset;
-       
+        float timePerObject = GetTimePerObject(interactionTime);
+
         StartCoroutine(_MoveObjects(timePerObject));
+    }
+
+    private float GetTimePerObject(float interactionTime)
+    {
+        if (tweenType == InteractionTweenType.DependsOnInteractionTime)
+            return ((interactionTime - START_DELAY) / objectSetups.Length) - TIME_PER_OBJECT_OFFSET;
+        else
+            return tweenFixedTime;
     }
 
     #region Interaction Methods
@@ -65,8 +72,8 @@ public abstract class ObjectSetupInteraction : MonoBehaviour
         if (HasInstalationSigns())
             ResetSigns();
 
-        currentSetupItemInterface?.OnCancelInteraction();
-        currentSetupItemInterface = null;
+        currentSetupItem?.OnCancelInteraction();
+        currentSetupItem = null;
     }
 
     public void OnFinishInterction()
@@ -76,8 +83,8 @@ public abstract class ObjectSetupInteraction : MonoBehaviour
     protected virtual void FinishHoldInteraction()
     {
         StopAllCoroutines();
-        currentSetupItemInterface?.OnFinishInteraction();
-        currentSetupItemInterface = null;
+        currentSetupItem?.OnFinishInteraction();
+        currentSetupItem = null;
     }
     #endregion
 
@@ -112,11 +119,11 @@ public abstract class ObjectSetupInteraction : MonoBehaviour
 
     protected IEnumerator _MoveObjects(float timePerObject)
     {
-        currentSetupItemInterface.OnInitInteraction();
+        currentSetupItem.OnInitInteraction();
 
         OnStartMovingObjects();
 
-        yield return new WaitForSeconds(startDelay);
+        yield return new WaitForSeconds(START_DELAY);
 
         ObjectSetup lastObjectSetup = null;
         do
@@ -128,13 +135,13 @@ public abstract class ObjectSetupInteraction : MonoBehaviour
                 yield return new WaitForSeconds(timePerObject);
             }
 
-            if (interactionType == ObjcetSetupInteractionType.Loop) 
+            if (interactionType == InteractionType.Loop)
             {
                 yield return new WaitForSeconds(lastObjectSetup.GetTotalTweenDuration());
                 ResetAllObjects();
             }
 
-        } while (interactionType == ObjcetSetupInteractionType.Loop);
+        } while (interactionType == InteractionType.Loop);
     }
 
     public virtual void OnStartMovingObjects()
@@ -143,51 +150,55 @@ public abstract class ObjectSetupInteraction : MonoBehaviour
             StartCoroutine(_HideSigns());
     }
 
-    public abstract void MoveObject(ObjectSetup objectSetup, float time);
+    public abstract void MoveObject(ObjectSetup objectSetup, float duration);
+
+    #region Interaction Signs
+    protected bool HasInstalationSigns()
+    {
+        return interactionSigns.Count > 0;
+    }
 
     IEnumerator _HideSigns()
     {
         WaitForSeconds waitForSeconds = new WaitForSeconds(.5f);
 
-        foreach (var sign in signs)
+        foreach (var sign in interactionSigns)
         {
             if (sign != null)
-                sign.DOScale(Vector3.zero, 0.5f).SetEase(signsTweenEase).Play();
+                sign.DOScale(Vector3.zero, 0.5f).SetEase(interactionSignsTweenEase).Play();
             yield return waitForSeconds;
         }
     }
 
     protected void ResetSigns()
     {
-        foreach (var sign in signs)
+        foreach (var sign in interactionSigns)
         {
             if (sign != null)
             {
                 sign.DOKill();
-                sign.localScale = signDefaultScale;
+                sign.localScale = interactionSignDefaultScale;
             }
         }
-    }
-
-    protected bool HasInstalationSigns()
-    {
-        return signs.Count > 0;
     }
 
     private void RemoveNullFieldsFromSignList()
     {
         List<Transform> notNullSigns = new List<Transform>();
-        int count = signs.Count;
+        int count = interactionSigns.Count;
         for (int i = 0; i < count; i++)
         {
-            if (signs[i] != null)
-                notNullSigns.Add(signs[i]);
+            if (interactionSigns[i] != null)
+                notNullSigns.Add(interactionSigns[i]);
         }
-        signs = notNullSigns;
+        interactionSigns = notNullSigns;
     }
+    #endregion
+
+
 }
 [System.Serializable]
-public enum ObjcetSetupInteractionType
+public enum InteractionType
 {
     /// <summary>
     /// Plays the animation one time
@@ -199,7 +210,7 @@ public enum ObjcetSetupInteractionType
     Loop
 }
 [System.Serializable]
-public enum ObjcetSetupInteractionTweenType
+public enum InteractionTweenType
 {
     /// <summary>
     /// The time between objects will depend on the given interaction time

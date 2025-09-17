@@ -73,7 +73,7 @@ public abstract class ObjectSetup : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    public abstract void MoveObject(Transform setupItemTransform, Vector3 targetPosition, float time, Action<ObjectSetup> OnHitTargetPosition = null);
+    public abstract void MoveObject(Transform setupItemTargetPoint, Vector3 finalPosition, float duration, Action<ObjectSetup> OnHitTargetPosition = null);
 
 
     public virtual void ResetObject()

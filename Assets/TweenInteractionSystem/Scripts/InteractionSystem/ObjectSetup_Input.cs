@@ -30,9 +30,9 @@ public class ObjectSetup_Input : ObjectSetup
     [SerializeField]
     private float finalMoveDuration = .5f;
 
-    public override void MoveObject(Transform setupItemTransform, Vector3 targetPosition, float time, Action<ObjectSetup> OnHitTargetPosition = null)
+    public override void MoveObject(Transform setupItemTargetPoint, Vector3 finalPosition, float duration, Action<ObjectSetup> OnHitTargetPosition = null)
     {
-        MoveObjectIn(setupItemTransform, OnHitTargetPosition);
+        MoveObjectIn(setupItemTargetPoint, OnHitTargetPosition);
     }
 
     private void MoveObjectIn(Transform setupItemTransform, Action<ObjectSetup> OnHitTargetPosition = null)
