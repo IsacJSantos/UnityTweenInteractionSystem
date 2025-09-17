@@ -163,8 +163,8 @@ MonoBehaviour:
   - {fileID: 731399348}
   - {fileID: 112748409}
   - {fileID: 137396691}
-  signs: []
-  signsTweenEase: 27
+  interactionSigns: []
+  interactionSignsTweenEase: 27
   setupSignParent: {fileID: 0}
 --- !u!4 &34249631
 Transform:
@@ -1084,8 +1084,8 @@ MonoBehaviour:
   boxObject: {fileID: 814866213}
   tableInteraction: {fileID: 1799608039}
   interactionTime: 5
-  StartInteraction: 0
-  CancelInteraction: 0
+  startInteraction: 0
+  cancelInteraction: 0
 --- !u!4 &293090745
 Transform:
   m_ObjectHideFlags: 0
@@ -1302,7 +1302,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: -0.3257432, y: -0.62898177, z: 0.32769984, w: -0.62520885}
-  m_LocalPosition: {x: -2.036026, y: 4.329502, z: -0.22131827}
+  m_LocalPosition: {x: -2.41, y: 4.39, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1502,8 +1502,8 @@ MonoBehaviour:
   boxObject: {fileID: 1791425343}
   tableInteraction: {fileID: 1266470461}
   interactionTime: 15
-  StartInteraction: 0
-  CancelInteraction: 0
+  startInteraction: 0
+  cancelInteraction: 0
 --- !u!4 &478427931
 Transform:
   m_ObjectHideFlags: 0
@@ -1628,8 +1628,8 @@ MonoBehaviour:
   - {fileID: 1299412237}
   - {fileID: 1795027761}
   - {fileID: 1473608622}
-  signs: []
-  signsTweenEase: 27
+  interactionSigns: []
+  interactionSignsTweenEase: 27
   setupSignParent: {fileID: 0}
 --- !u!1 &523747420
 GameObject:
@@ -2433,8 +2433,8 @@ MonoBehaviour:
   boxObject: {fileID: 1156473767}
   tableInteraction: {fileID: 34249630}
   interactionTime: 15
-  StartInteraction: 0
-  CancelInteraction: 0
+  startInteraction: 0
+  cancelInteraction: 0
 --- !u!4 &960983863
 Transform:
   m_ObjectHideFlags: 0
@@ -2693,6 +2693,74 @@ MonoBehaviour:
   scaleEase: 1
   jumpPower: 0.75
   ratation: {x: 40, y: 0, z: 0}
+--- !u!1 &1062301403
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1062301406}
+  - component: {fileID: 1062301405}
+  - component: {fileID: 1062301404}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1062301404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062301403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1062301405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062301403}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 10
+--- !u!4 &1062301406
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062301403}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1067903403
 GameObject:
   m_ObjectHideFlags: 0
@@ -3018,8 +3086,8 @@ MonoBehaviour:
   - {fileID: 192389665}
   - {fileID: 1018369410}
   - {fileID: 1643191670}
-  signs: []
-  signsTweenEase: 27
+  interactionSigns: []
+  interactionSignsTweenEase: 27
   setupSignParent: {fileID: 0}
 --- !u!4 &1266470462
 Transform:
@@ -3391,8 +3459,8 @@ MonoBehaviour:
   boxObject: {fileID: 1108049064}
   tableInteraction: {fileID: 478931417}
   interactionTime: 5
-  StartInteraction: 0
-  CancelInteraction: 0
+  startInteraction: 0
+  cancelInteraction: 0
 --- !u!4 &1570510471
 Transform:
   m_ObjectHideFlags: 0
@@ -4093,8 +4161,8 @@ MonoBehaviour:
   - {fileID: 1067903405}
   - {fileID: 327567565}
   - {fileID: 961491146}
-  signs: []
-  signsTweenEase: 27
+  interactionSigns: []
+  interactionSignsTweenEase: 27
   setupSignParent: {fileID: 0}
 --- !u!1 &1885760028
 GameObject:
@@ -4388,3 +4456,4 @@ SceneRoots:
   - {fileID: 1570510471}
   - {fileID: 960983863}
   - {fileID: 478427931}
+  - {fileID: 1062301406}

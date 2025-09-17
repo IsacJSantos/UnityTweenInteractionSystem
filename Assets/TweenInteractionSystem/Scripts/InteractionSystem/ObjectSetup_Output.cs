@@ -15,11 +15,11 @@ public class ObjectSetup_Output : ObjectSetup
     [SerializeField]
     private Vector3 ratation;
 
-    private float currentAnimationDuration;
-    public override void MoveObject(Transform setupItemTargetPoint, Vector3 finalPosition, float time, Action<ObjectSetup> OnHitTargetPosition = null)
+    private float currentTweenDuration;
+    public override void MoveObject(Transform setupItemTargetPoint, Vector3 finalPosition, float duration, Action<ObjectSetup> OnHitTargetPosition = null)
     {
-        currentAnimationDuration = time;
-        MoveObjectOut(finalPosition, time, OnHitTargetPosition);
+        currentTweenDuration = duration;
+        MoveObjectOut(finalPosition, duration, OnHitTargetPosition);
     }
 
     private void MoveObjectOut(Vector3 targetPosition, float time, Action<ObjectSetup> OnHitTargetPosition = null)
@@ -32,7 +32,7 @@ public class ObjectSetup_Output : ObjectSetup
             return;
         }
 
-        SetLayer(true);
+        SetFirstPersonLayer();
 
         transform.DOScale(minScale, time).SetEase(scaleEase);
 
@@ -55,6 +55,6 @@ public class ObjectSetup_Output : ObjectSetup
 
     public override float GetTotalTweenDuration()
     {
-       return currentAnimationDuration;
+       return currentTweenDuration;
     }
 }

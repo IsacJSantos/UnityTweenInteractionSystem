@@ -4,7 +4,7 @@ using DG.Tweening;
 public class BoxObject : MonoBehaviour, ISetupObjectItem
 {
     [SerializeField]
-    private Animation animation;
+    private Animation m_animation;
     [SerializeField]
     private Transform targetPoint;
     public Transform targetTransform => targetPoint;
@@ -13,17 +13,17 @@ public class BoxObject : MonoBehaviour, ISetupObjectItem
 
     public void OnCancelInteraction()
     {
-        animation.Play("BoxClose");
+        m_animation.Play("BoxClose");
     }
 
     public void OnFinishInteraction()
     {
-        animation.Play("BoxClose");
+        m_animation.Play("BoxClose");
     }
 
     public void OnInitInteraction()
     {
-        animation.Play("BoxOpen");
+        m_animation.Play("BoxOpen");
     }
 
     public void OnObjectHitTargetPosition()

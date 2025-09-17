@@ -7,25 +7,36 @@ public class InteractionController : MonoBehaviour
     public ObjectSetupInteraction tableInteraction;
     public float interactionTime;
 
-    public bool StartInteraction;
-    public bool CancelInteraction;
+    public bool startInteraction;
+    public bool cancelInteraction;
 
     private void OnValidate()
     {
-        if (StartInteraction) 
+        if (startInteraction) 
         {
-            StartInteraction = false;
-            StartCoroutine(_StartInteraction());
+            startInteraction = false;
+            StartInteraction(interactionTime);
         }
 
-        if (CancelInteraction) 
+        if (cancelInteraction) 
         {
-            CancelInteraction = false;
+            cancelInteraction = false;
             StopAllCoroutines();
             tableInteraction.OnCancelInterction();
         }
     }
 
+    public void StartInteraction(float interactionTime) 
+    {
+        StopAllCoroutines();
+        StartCoroutine(_StartInteraction());
+    }
+
+    public void CancelInteraction() 
+    {
+        StopAllCoroutines();
+        tableInteraction.OnCancelInterction();
+    }
     IEnumerator _StartInteraction() 
     {
         tableInteraction.OnStartInterction(boxObject.GetComponent<ISetupObjectItem>(), interactionTime);

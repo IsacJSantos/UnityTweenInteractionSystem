@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 358b45bcf171b5d4b857b5e3e1e528ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animation: {fileID: 3418849216609673845}
+  m_animation: {fileID: 3418849216609673845}
   targetPoint: {fileID: 4834327717860106043}
 --- !u!1 &7933027169009740919
 GameObject:

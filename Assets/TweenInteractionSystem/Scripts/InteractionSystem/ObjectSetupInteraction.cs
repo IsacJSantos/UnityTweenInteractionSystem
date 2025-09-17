@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Events;
 
 public abstract class ObjectSetupInteraction : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public abstract class ObjectSetupInteraction : MonoBehaviour
     protected float tweenFixedTime;
     [SerializeField]
     protected ObjectSetup[] objectSetups;
+
+    [Space(10)]
 
     [SerializeField]
     [Tooltip("The interaction signs in this setup interaction")]

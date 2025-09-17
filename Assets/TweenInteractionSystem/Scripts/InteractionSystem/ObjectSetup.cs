@@ -82,15 +82,23 @@ public abstract class ObjectSetup : MonoBehaviour
         transform.position = initialPosition;
         transform.localScale = initialScale;
         transform.eulerAngles = initialRotation;
-        SetLayer(false);
+        SetDefaultLayer();
     }
 
-    protected void SetLayer(bool firstPerson)
+    protected void SetDefaultLayer()
     {
         int length = visualRenderers.Length;
         for (int i = 0; i < length; i++)
         {
-            visualRenderers[i].gameObject.layer = firstPerson ? firstPersonLayer : defaultLayer;
+            visualRenderers[i].gameObject.layer = defaultLayer;
+        }
+    }
+    protected void SetFirstPersonLayer()
+    {
+        int length = visualRenderers.Length;
+        for (int i = 0; i < length; i++)
+        {
+            visualRenderers[i].gameObject.layer = firstPersonLayer;
         }
     }
 

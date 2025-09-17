@@ -35,7 +35,7 @@ public class ObjectSetup_Input : ObjectSetup
         MoveObjectIn(setupItemTargetPoint, OnHitTargetPosition);
     }
 
-    private void MoveObjectIn(Transform setupItemTransform, Action<ObjectSetup> OnHitTargetPosition = null)
+    private void MoveObjectIn(Transform setupItemTargetPoint, Action<ObjectSetup> OnHitTargetPosition = null)
     {
         if (disableTween)
         {
@@ -43,15 +43,15 @@ public class ObjectSetup_Input : ObjectSetup
             return;
         }
 
-        SetLayer(true);
+        SetFirstPersonLayer();
 
-        transform.position = setupItemTransform.position;
+        transform.position = setupItemTargetPoint.position;
         transform.localScale = Vector3.one * minScale;
         transform.eulerAngles = new Vector3(UnityEngine.Random.Range(0, 360), UnityEngine.Random.Range(0, 360), UnityEngine.Random.Range(0, 360));
 
         Vector3 targetPosition = GetTargetPositionWithOffset();
 
-        DoMoveTween(setupItemTransform, targetPosition, OnHitTargetPosition);
+        DoMoveTween(setupItemTargetPoint, targetPosition, OnHitTargetPosition);
 
     }
 
@@ -66,21 +66,21 @@ public class ObjectSetup_Input : ObjectSetup
         return parentTransform.TransformPoint(resultPosition);
     }
 
-    void DoMoveTween(Transform setupItemTransform, Vector3 targetPosition, Action<ObjectSetup> OnHitTargetPosition = null)
+    void DoMoveTween(Transform setupItemTargetPoint, Vector3 targetPosition, Action<ObjectSetup> OnHitTargetPosition = null)
     {
         transform.DOScale(initialScale, scaleDuration).SetEase(scaleEase).Play();
 
         transform.DORotate(initialRotation, 0.8f);
 
-        Vector3 jumpPosition = setupItemTransform.TransformPoint(setupItemTransform.localPosition + jumpOffset);
+        Vector3 jumpPosition = setupItemTargetPoint.TransformPoint(setupItemTargetPoint.localPosition + jumpOffset);
 
         Vector3[] waypoints = new Vector3[] { jumpPosition, targetPosition };
 
         transform.DOPath(waypoints, jumpDuration, PathType.CatmullRom)
                  .OnUpdate(() =>
                  {
-                     if (Vector3.Distance(transform.position, targetPosition) < 1)
-                         SetLayer(false);
+                     if (CanChangeToDefaultLayer(targetPosition))
+                         SetDefaultLayer();
                  })
                  .OnComplete(() =>
                  {
@@ -92,6 +92,11 @@ public class ObjectSetup_Input : ObjectSetup
                               })
                               .SetDelay(finalMoveDelay);
                  });
+    }
+
+    private bool CanChangeToDefaultLayer(Vector3 targetPosition)
+    {
+        return Vector3.Distance(transform.position, targetPosition) < 1;
     }
 
     public override void ResetObject()

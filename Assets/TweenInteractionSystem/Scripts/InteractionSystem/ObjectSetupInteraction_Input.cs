@@ -1,6 +1,3 @@
-
-using System;
-
 public class ObjectSetupInteraction_Input : ObjectSetupInteraction
 {
     private void Start()
@@ -28,12 +25,8 @@ public class ObjectSetupInteraction_Input : ObjectSetupInteraction
         ToggleInteraction(false);
     }
 
-
-
     private void OnObjectHitTargetPosition(ObjectSetup objectSetup)
     {
-        //currentSetupItemInterface.OnObjectHitTargetPosition();
+
     }
-
-
 }
